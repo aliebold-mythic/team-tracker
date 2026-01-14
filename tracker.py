@@ -40,7 +40,7 @@ def save_entry(name, type_of_contrib, amount, notes):
     sheet.append_row(row)
 
 # --- App Interface ---
-st.title("🌟 Team Impact Tracker")
+st.title("🌟 Mission Month 2026 Tracker")
 st.markdown("Log your contributions below. Your individual entries are **private**; only the team totals are displayed.")
 
 # --- 1. The Input Form ---
