@@ -5,7 +5,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 
 # --- Page Setup ---
-st.set_page_config(page_title="Team Impact Tracker", page_icon="🌟")
+st.set_page_config(page_title="Mission Month 2026 Impact Tracker", page_icon="🌟")
 
 # --- Functions ---
 def get_google_sheet():
@@ -20,7 +20,7 @@ def get_google_sheet():
     # Authorize and open the sheet
     client = gspread.authorize(creds)
     # MAKE SURE your Google Sheet is named exactly this:
-    return client.open("Team Tracker").sheet1
+    return client.open("Mission Month 2026 Tracker").sheet1
 
 def load_summary_data():
     """Loads data ONLY to calculate totals."""
