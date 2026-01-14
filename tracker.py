@@ -61,16 +61,22 @@ with st.form("entry_form", clear_on_submit=True):
             try:
                 save_entry(name_input, contrib_type, amount_input, notes_input)
                 st.success(f"Thanks, {name_input}! We've logged {amount_input} for {contrib_type}.")
-                st.balloons() # Fun visual celebration
+                st.balloons()
             except Exception as e:
-                st.error("Error connecting to database. Please notify the admin.")
+                st.error(f"Error connecting to database: {e}")
         else:
             st.warning("Please enter your name and a valid amount.")
 
 st.markdown("---")
 
 # --- 2. The Team Dashboard (Totals Only) ---
-st.subheader("📊 Our Collective Impact")
+col_header, col_btn = st.columns([4,1])
+with col_header:
+    st.subheader("📊 Our Collective Impact")
+with col_btn:
+    # This button triggers a page reload
+    if st.button("🔄 Refresh Data"):
+        st.rerun()
 
 df = load_summary_data()
 
@@ -90,13 +96,5 @@ if not df.empty:
     col2.metric("Total Donations", f"${total_money:,.2f}")
     col3.metric("Team Members Active", total_participants)
     
-    # Optional: A chart showing progress over time (anonymized)
-    if "Date" in df.columns:
-        df["Date"] = pd.to_datetime(df["Date"])
-        # Simple bar chart of activity counts per day
-        daily_counts = df.groupby(df["Date"].dt.date).size()
-        st.bar_chart(daily_counts)
-        st.caption("Activity trend over time (Count of entries)")
-
 else:
-    st.info("Waiting for the first entry...")
+    st.info("Waiting for the first entry.")
