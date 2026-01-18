@@ -1,0 +1,12 @@
+[theme]
+# The primary color of the app (buttons, sliders, active selection)
+primaryColor = "#068dea"
+
+# The background color of the main content area
+backgroundColor = "#332F2F"
+
+# The background color of the sidebar
+secondaryBackgroundColor = "#808285"
+
+# The text color
+textColor = "#ffffff"
