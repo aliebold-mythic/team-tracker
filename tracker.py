@@ -7,6 +7,28 @@ from datetime import datetime
 # --- Page Setup ---
 st.set_page_config(page_title="Mission Month 2026 Impact Tracker", page_icon="🌟")
 
+# --- CUSTOM CSS FOR FONTS ---
+st.markdown(
+    """
+    <style>
+    /* 1. Import the Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+    /* 2. Apply the font to the entire app */
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+    
+    /* Optional: Make the headers bold and colorful */
+    h1, h2, h3 {
+        font-weight: 600;
+        color: #068dea; /* Matches your primary color */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # --- Functions ---
 def get_google_sheet():
     """Connects to Google Sheets using Streamlit Secrets."""
