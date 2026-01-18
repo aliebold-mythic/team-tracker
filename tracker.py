@@ -14,20 +14,25 @@ st.markdown(
     /* 1. Import Inter from Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-    /* 2. Force Inter on the whole app */
-    html, body, [class*="css"] {
+    /* 2. The Nuclear Option: Force Inter on EVERYTHING */
+    * {
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    /* 3. Specifically target inputs and text areas to override browser defaults */
+    input, textarea, select, button {
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    /* 4. Fix the big Metric numbers and labels */
+    div[data-testid="stMetricValue"], div[data-testid="stMetricLabel"] {
         font-family: 'Inter', sans-serif !important;
     }
     
-    /* 3. Make titles bold and ensure they use Inter too */
-    h1, h2, h3 {
+    /* 5. Clean up the titles */
+    h1, h2, h3, h4, h5, h6 {
         font-family: 'Inter', sans-serif !important;
         font-weight: 700 !important;
-    }
-    
-    /* 4. Fix specific Streamlit elements (buttons, inputs) */
-    .stTextInput, .stNumberInput, .stSelectbox, .stButton {
-        font-family: 'Inter', sans-serif !important;
     }
     </style>
     """,
