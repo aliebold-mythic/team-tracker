@@ -11,18 +11,23 @@ st.set_page_config(page_title="Mission Month 2026 Impact Tracker", page_icon="ðŸ
 st.markdown(
     """
     <style>
-    /* 1. Import the Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    /* 1. Import Inter from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-    /* 2. Apply the font to the entire app */
+    /* 2. Force Inter on the whole app */
     html, body, [class*="css"] {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', sans-serif !important;
     }
     
-    /* Optional: Make the headers bold and colorful */
+    /* 3. Make titles bold and ensure they use Inter too */
     h1, h2, h3 {
-        font-weight: 600;
-        color: #068dea; /* Matches your primary color */
+        font-family: 'Inter', sans-serif !important;
+        font-weight: 700 !important;
+    }
+    
+    /* 4. Fix specific Streamlit elements (buttons, inputs) */
+    .stTextInput, .stNumberInput, .stSelectbox, .stButton {
+        font-family: 'Inter', sans-serif !important;
     }
     </style>
     """,
